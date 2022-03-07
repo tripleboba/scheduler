@@ -5,7 +5,6 @@
  *  interviewer:number - id of currently selected interviewer
  */
 import React from "react";
-import classNames from "classnames";
 import "./styles_components/InterviewerList.scss";
 import InterviewerListItem from "./InterviewerListItem";
  
@@ -16,7 +15,7 @@ export default function InterviewerList(props) {
      key={interviewer.id}
      {...interviewer}
      selected={interviewer.id === props.interviewer}
-     setInterviewer={props.setInterviewer}
+     setInterviewer={() => props.setInterviewer(interviewer.id)}
     />
   ));
 
@@ -26,4 +25,5 @@ export default function InterviewerList(props) {
       <ul className="interviewers__list">{listOfInterviewer}</ul>
     </section>
   );
- }
+
+}

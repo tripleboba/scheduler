@@ -13,7 +13,7 @@ import classNames from "classnames";
 
 export default function InterviewerListItem(props) {
 
-  const {id, name, avatar, selected, setInterviewer} = props;
+  const {name, avatar, selected, setInterviewer} = props;
 
   const interviewerClass = classNames("interviewers__item", 
     {
@@ -23,13 +23,13 @@ export default function InterviewerListItem(props) {
 
   return(
     <li
-      selected={selected}
-      onClick={() => setInterviewer(id)}
+      onClick={setInterviewer}
       className={interviewerClass}
     >
       <img src={avatar} alt={name}
         className="interviewers__item-image"
-      />{selected && name}
+      />
+      {selected && name}
     </li>
   );
 }
