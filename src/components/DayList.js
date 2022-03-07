@@ -16,8 +16,10 @@ export default function DayList(props) {
     <DayListItem
       key={day.id}
       {...day}
-      selected={day.date === props.day}
-      setDay={props.setDay}
+      // selected={day.date === props.day}
+      // setDay={props.setDay}
+      selected={day.date === props.value}
+      setDay={props.onChange}
     />
   ));
 

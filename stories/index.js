@@ -32,6 +32,7 @@ storiesOf("Button", module)
 /** ---------- DAY LIST ITEM ---------- */
 let interviewSpots = 5;
 const setDay = action("setDay");
+
 storiesOf("DayListItem", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -54,9 +55,10 @@ storiesOf("DayList", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
   })
-  .add("Monday", () => <DayList day={"Monday"} days={days} setDay={setDay} />)
-  .add("Tuesday", () => <DayList day={"Tuesday"} days={days} setDay={setDay} />)
-  .add("Wednesday", () => <DayList day={"Wednesday"} days={days} setDay={setDay} />)
+  // .add("Monday", () => <DayList day={"Monday"} days={days} setDay={setDay} />)
+  .add("Monday", () => <DayList day={"Monday"} days={days} onChange={setDay} />)
+  .add("Tuesday", () => <DayList day={"Tuesday"} days={days} onChange={setDay} />)
+  .add("Wednesday", () => <DayList day={"Wednesday"} days={days} onChange={setDay} />)
 
 /** ---------- INTERVIEWER LIST ITEM ---------- */
 const interviewer = {
