@@ -19,7 +19,7 @@
  *  interviewers:Array
  *  interviewer:Number
  *  onSave
- *  onCancel
+ *  onCancel - clear the form's value
  */
 
 import React, {useState} from "react";
@@ -37,6 +37,15 @@ export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
   const formInputHandler = e => {setStudent(e.target.value)};
+  const reset = () => {
+    setStudent("");
+    setInterviewer(null);
+  };
+  const cancel = () => {
+    reset();
+    props.onCancel(); // for state changing display in Storybook when click the button
+  };
+
 
   return(
     <main className="appointment__card appointment__card--create">
@@ -46,25 +55,26 @@ export default function Form(props) {
             name="name" type="text"
             placeholder="Enter Student Name"
             className="appointment__create-input text--semi-bold"
-            /*
-              This must be a controlled component your code goes here
-            */
-           value={student}
-           onChange={formInputHandler}
+            
+            value={student}
+            onChange={formInputHandler}
           />
         </form>
         <InterviewerList
           interviewers={props.interviewers}
           value={interviewer}
+          /* onChange is name for prop refactored in <InterviewerListItem> and <InterviewerList> */
           onChange={setInterviewer}
         />
       </section>
+
       <section className="appointment__card-right">
         <section className="appointment__actions">
-          <Button danger onClick={props.onCancel}>Cancel</Button>
+          <Button danger onClick={cancel}>Cancel</Button>
           <Button confirm onClick={props.onConfirm}>Save</Button>
         </section>
       </section>
+
     </main>
   );
 }
