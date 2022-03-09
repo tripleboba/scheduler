@@ -135,6 +135,7 @@ const onEdit = action("onEdit");
 const onDelete = action("onDelete");
 const onConfirm = action("onConfirm");
 const onCancel = action("onCancel");
+const onSave = action("onSave");
 const onClose = action("onClose");
 
 
@@ -169,7 +170,7 @@ storiesOf("Appointment", module)
     <Form
       interviewers={interviewers}
       onCancel={onCancel}
-      onConfirm={onConfirm}
+      onSave={onSave}
     />))
   .add("Edit Appointment", () => (
     <Form
@@ -177,5 +178,5 @@ storiesOf("Appointment", module)
       interviewer={3}
       interviewers={interviewers}
       onCancel={onCancel}
-      onConfirm={onConfirm}
+      onSave={onSave}
     />))
