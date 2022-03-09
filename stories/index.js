@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -127,7 +127,7 @@ storiesOf("InterviewerList", module)
   ))
 
 /** ---------- APPOINMENT ---------- */
-const time = "12pm";
+const time = "4pm";
 const student = "Lydia Miller-Jones";
 
 const onAdd = action("onAdd");
@@ -166,13 +166,13 @@ storiesOf("Appointment", module)
       message={"Could not delete appointment."}
       onClose={onClose}
     />))
-  .add("Create Appointment", () => (
+  .add("Create", () => (
     <Form
       interviewers={interviewers}
       onCancel={onCancel}
       onSave={onSave}
     />))
-  .add("Edit Appointment", () => (
+  .add("Edit", () => (
     <Form
       student={student}
       interviewer={3}
@@ -180,3 +180,21 @@ storiesOf("Appointment", module)
       onCancel={onCancel}
       onSave={onSave}
     />))
+  .add("Appointment Empty", () => (
+    <Fragment>
+      <Appointment id={1} time="4pm" />
+      {/* css stylesheet set the last element will have no add interview button 
+          to indicate close hour for booking */}
+      <Appointment time="5pm" />
+
+    </Fragment>
+  ))
+  .add("Appointment Booked", () => (
+    <Fragment>
+      <Appointment
+        id={1} time="4pm"
+        interview={{ student: "Lydia Miller-Jones", interviewer }}
+      />
+      <Appointment time="5pm" />
+    </Fragment>
+  ))
