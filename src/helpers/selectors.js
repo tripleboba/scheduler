@@ -29,6 +29,6 @@ export function getInterview(state, interview) {
   // }
   return {
     student: interview.student,
-    interviewer: {...state.interviewers[interview.interviewer]}
+    interviewer: state.interviewers[interview.interviewer]
   };
 }
