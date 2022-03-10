@@ -1,10 +1,10 @@
 /**
  * Displaying depends on the state
- *  - date of the day (wheather it is selected or unselected)
+ *  - name of the day (wheather it is selected or unselected)
  *  - interview spots left
  * 
  * 4 props
- *  date:String - name of the day
+ *  name:String - name of the day
  *  spots:Number - number of spots left
  *  selected:Boolean - day is selected ?
  *  setDay:Func - accepts the name of day ('Monday',...)
@@ -29,11 +29,11 @@ export default function DayListItem(props) {
 
   return(
     <li
-      onClick={() => props.setDay(props.date)}
+      onClick={() => {props.setDay(props.name)}}
       selected={props.selected}
       className={dayClass}
     >
-      <h2 className="text--regular">{props.date}</h2>
+      <h2 className="text--regular">{props.name}</h2>
       <h3 className="text--light">{formatSpots(props.spots)}</h3>
     </li>
   );

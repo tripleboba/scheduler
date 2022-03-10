@@ -1,8 +1,8 @@
 /**
  * 3 props
  *  day:String - currently selected day
- *  days:Array - list of day objs {id, date, spots}
- *  setDay:Func - accepts the date of day ('Monday',...)
+ *  days:Array - list of day objs {id, name, spots}
+ *  setDay:Func - accepts the name of day ('Monday',...)
  * 
  * container for all DayListItem components
  * responsible for rendering a list of DayListItem components
@@ -16,10 +16,10 @@ export default function DayList(props) {
     <DayListItem
       key={day.id}
       {...day}
-      // selected={day.date === props.day}
+      // selected={day.name === props.day}
       // setDay={props.setDay}
-      selected={day.date === props.value}
-      // setDay={() => props.onChange(day.date)}
+      selected={day.name === props.value}
+      // setDay={() => props.onChange(day.name)}
       setDay={props.onChange}
     />
   ));
