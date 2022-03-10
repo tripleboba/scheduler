@@ -3,7 +3,7 @@ import axios from "axios";
 import "./styles_components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "./Appointment";
-
+import { getAppointmentsForDay, getInterviewersForDay, getInterview } from "helpers/selectors";
 const appointments = {
   "1": {
     id: 1, time: "12pm",
