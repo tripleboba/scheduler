@@ -76,7 +76,7 @@ export default function Form(props) {
         <section className="appointment__actions">
           <Button danger onClick={cancel}>Cancel</Button>
           {/* <Button confirm onClick={props.onSave}>Save</Button> */}
-          <Button confirm onClick={save(student, interviewer)}>Save</Button>
+          <Button confirm onClick={() => save(student, interviewer)}>Save</Button>
         </section>
       </section>
 
