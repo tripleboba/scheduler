@@ -43,16 +43,43 @@ export default function useApplicationData() {
       ...state,
       appointments,
     });
-    return axios.put(`/api/appointments/${id}`, {interview});
-  }
-  function cancelInterview(id) {
+
+    const selectedDay = state.days.find((day)=> day.appointments.includes(id));
+    const days = state.days.map((day) => {
+      if (day.name === selectedDay.name && state.appointments[id].interview === null) {
+        return {...day, spots: day.spots - 1 };
+      }
+      else { return day; }
+    })
+
     return axios
-    .delete(`/api/appointments/${id}`)
-    .then(() => setState(prev => ({
-      ...prev,
-      id: { id, interview: null} 
-      }))
-    )
+      .put(`/api/appointments/${id}`, {interview})
+      .then(() => setState({...state, appointments, days}))
+  }
+
+  function cancelInterview(id) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    const selectedDay = state.days.find((day)=> day.appointments.includes(id));
+    const days = state.days.map((day) => {
+      if (day.name === selectedDay.name) {
+        return {...day, spots: day.spots + 1 };
+      }
+      else { return day; }
+    })
+
+    return axios
+      .delete(`/api/appointments/${id}`)
+      .then(() => 
+        // setState(prev => ({...prev, id: { id, interview: null} }))
+        setState({...state, appointments, days})
+      )
   }
 
   return {
