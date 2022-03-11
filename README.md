@@ -43,4 +43,14 @@ Project will be built in 5 days applying Storybook-based approach (build compone
 - Live server development: Webpack Dev Server
 - Testing framework: Jest
 - Automated End-to-End UI testing: Cypress
-- 
+
+<b> Images </b>
+![Add meeting](display/1%20-%20add%20appoinment.png)
+![](display/2%20-%20save%20appointment.png)
+![](display/3%20-%20appointment%20added.png)
+![](display/4%20-%20delete%20appointment.png)
+![](display/5%20-%20confirmed%20delete.png)
+![](display/6%20-%20error%20status.png)
+![](display/7%20-%20delete%20error.png)
+![](display/8%20-%20validate%20input.png)
+![](display/9%20-%20save%20error.png)
