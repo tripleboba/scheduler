@@ -25,8 +25,7 @@ const CREATE = "CREATE";
 
 export default function Appointment(props) {
 
-  let {interview, interviewers}=props;
-  interviewers=[];
+  const {interview, interviewers}=props;
   const {mode, transition, back} = useVisualMode (interview ? SHOW : EMPTY);
   
   return (
@@ -46,8 +45,7 @@ export default function Appointment(props) {
       {mode === CREATE &&
         <Form
           interviewers={interviewers}
-          onCancel={() => back()
-          }
+          onCancel={() => back()}
         />
       }
     </article>
