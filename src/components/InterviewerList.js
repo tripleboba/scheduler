@@ -5,6 +5,7 @@
  *  interviewer:number - id of currently selected interviewer
  */
 import React from "react";
+import PropTypes from 'prop-types'; 
 import "./styles_components/InterviewerList.scss";
 import InterviewerListItem from "./InterviewerListItem";
  
@@ -27,5 +28,8 @@ export default function InterviewerList(props) {
       <ul className="interviewers__list">{listOfInterviewer}</ul>
     </section>
   );
-
 }
+
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired
+};
