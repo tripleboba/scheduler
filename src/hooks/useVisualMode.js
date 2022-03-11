@@ -8,7 +8,7 @@ export default function useVisualMode(initial) {
   function transition(mode, replace = false) {
     setMode(mode);
     if (replace) setHistory(history => [...history.slice(0, -1), mode]);
-    else setHistory(history => [...history, mode]);
+    else setHistory(history => ([...history, mode]));
   };
 
   function back() {
